@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Products</title>
+
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="../static/js/bootstrap.js"></script>
+
+    <style>
+        .icons-edit {
+            font-size: 25px;
+            color: green;
+        }
+
+        .icons-delete {
+            font-size: 25px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h5 class="text-danger my-3">{{message}}</h5>
+        <table class="table table-striped">
+            <tr>
+                <th>Product Name</th>
+                <th>Product Description</th>
+                <th>Product Rating</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </tr>
+
+            {% for feed in feedback %}
+            <tr>
+                <td>{{feed[1]}}</td>
+                <td>{{feed[2]}}</td>
+                <td>{{feed[3]}}</td>
+
+
+                <td> <a href="/delete/{{feedback[0]}}"> <i class="fa fa-trash icons-delete"></i> </a> </td>
+                <td> <a href="#"> <i class="fa fa-pencil icons-edit"></i></a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+
+</body>
+
+</html>

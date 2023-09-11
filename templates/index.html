@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home Page</title>
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
+            rel='stylesheet'>
+        <link rel="stylesheet" href="../static/index.css">
+        <link rel="stylesheet" href="../static/footer.css">
+        <script src="../static/index.js"></script>
+        <style>
+            .btn{
+                background-color: aqua;
+                padding: 20px;
+                border-radius: 20px;
+                margin-right: 10px;
+                text-decoration: none;
+                
+                align-items: center;
+            }
+        </style>
+    </head>
+
+
+    <body>
+        <header>
+            <div class="company-logo">D</div>
+            <nav class="navbar">
+                <ul class="nav-items">
+                    <li class="nav-item"><a href="#" class="nav-link">HOME</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">OFFER</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">SHOP</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <i class="bx bx-menu"></i>
+                <i class="bx bx-x"></i>
+            </div>
+        </header>
+        <main>
+            <!-- HOME SECTION -->
+            <section class="container section-1">
+                <div class="slogan">
+                    <h1 class="company-title">Alpha Online Shop</h1>
+                    <h2 class="company-slogan">
+                        A website where vendors upload products and buyers
+                        purchase goods or services from.
+                    </h2>
+                    <br>
+                    <a href="/vendor_login" class="btn ">Sell Products</a>
+                    <a href="/buy_products" class="btn ">Buy Products</a>
+                </div>
+                <div class="home-computer-container">
+                    <img class="home-computer"
+                        src="../static/images/profile1.jpg" 
+                        alt="a computer in dark with shadow" class="home-img">
+                </div>
+            </section>
+
+
+            <!-- SPONSOR SECTION -->
+            <section class="container section-4">
+                <!-- SPONSOR group 1 -->
+                <div class="sponsor sponsor-1"><img
+                        src="../static/images/amazon.jpeg"
+                        alt=""></div>
+                <div class="sponsor sponsor-2"><img
+                        src="../static/images/microsoft.png"
+                        alt=""></div>
+
+                <!-- SPONSOR group 2 -->
+                <div class="sponsor sponsor-3"><img
+                        src="../static/images/safaricom.jpg"
+                        alt=""></div>
+                <div class="sponsor sponsor-4"><img
+                        src="../static/images/ibm.jpeg"
+                        alt=""></div>
+            </section>
+
+            <!-- SUBSCRIBE SECTION-->
+            <section class="container section-5">
+                <h2 class="subscribe-input-label">NEWSLETTER</h2>
+                <div class="subscribe-container">
+                    <input type="text" id="email-subscribe" placeholder="Email
+                        address...">
+                    <input type="submit" value="SUBSCRIBE">
+                </div>
+            </section>
+        </main>
+
+
+        {%include 'footer.html'%}
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Products| ishop</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <script src="../static/js/bootstrap.js"></script>
+
+</head>
+<body>
+    
+    <div class="container bg-info">
+        <h3 class="bg-warning p-3 mt-2 text-white">Latest Phones</h3>
+        <section class="row">
+            {% for phone in phones %}
+            <div class="col-md-4">
+                <div class="card shadow my-2">
+                    <img src="../static/products/{{phone[7]}}" alt="" width="100%" height="300px style='border-radius:15px;'">
+                    <h4 class="text-center text-danger">{{phone[1]}}</h4>
+                    <h5 class="text-center">Ksh {{phone[3]}}</h5>
+                    <p class="badge bg-warning text-center text-white">{{phone[6]}}</p>
+                    <a href="/single_item/{{phone[0]}}" class="btn btn-success">View Product</a>
+                </div>
+
+            </div>
+            {% endfor %}
+        </section>
+
+        <h3 class="bg-warning p-3 mt-2 text-white">Latest Shoes</h3>
+        <section class="row">
+            {% for shoe in shoes %}
+            <div class="col-md-4">
+                <div class="card shadow my-2">
+                    <img src="../static/products/{{shoe[7]}}" alt="" width="100%" height="300px style='border-radius:15px;'">
+                    <h4 class="text-center text-danger">{{shoe[1]}}</h4>
+                    <h5 class="text-center">Ksh {{shoe[3]}}</h5>
+                    <p class="badge bg-warning text-center text-white">{{shoe[6]}}</p>
+                    <a href="/single_item/{{shoe[0]}}" class="btn btn-success">View Product</a>
+                </div>
+
+            </div>
+            {% endfor %}
+        </section>
+
+    </div>
+</body>
+</html>

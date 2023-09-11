@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <script src="../static/js/bootstrap.js"></script>
+</head>
+<body>
+    <p><button type="button" data-bs-toggle="modal" data-bs-target="#feedback" class="btn btn-outline-dark">Give Us Your Feedback</button></p>
+
+    <div class="modal fade" id="feedback">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ishop Ecommerce</h5>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body"> 
+                    <div class="card shadow mt-3 mb-3"><h5 class="mt-3 mb-3 text-success">{{message}}</h5>   
+                        <form action="/giveus_feedback" method="post" enctype="multipart/form-data">
+                        
+                            <label for="name" class="form-label"> Product Name: </label>
+                            <input type="text" name="name" id="name" class="form-control">
+                            <label for="cost" class="form-label"> Product Cost: </label>
+                            <input type="number" name="cost" id="cost" class="form-control">
+                            
+
+                            <label for="category" class="form-label"> Product Category: </label>
+                            <select name="category" id="category" class="form-control">
+                                <option value="phones">Phones</option>    
+                                <option value="laptops">Laptops</option>
+                                <option value="shoes">Shoes</option>
+                                <option value="food">Food</option>
+                                <option value="gaming">Games and Consoles</option>
+                                <option value="consmetics">Consmetics</option>
+                            </select>
+                            <label for="desc" class="form-label"> Product Description </label>
+                            <textarea name="desc" id="desc" cols="30" rows="10" class="form-control"></textarea>
+                            <label for="rating" class="form-label"> Product Rating: </label>
+                            <input type="num" name="rating" id="rating" class="form-control">
+
+                            
+                            
+                            <input type="number" name="vendor" id="vendor" value="{{session['vendor_id']}}" class="form-control" hidden>
+                            <input type="submit"  value="Submit feedback" class="btn btn-success m-2" > 
+                            <button:button class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button:button>
+                            
+                        </form>
+                    
+                    </div>
+    
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+
+</body>
+</html>

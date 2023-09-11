@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <script src="../static/js/bootstrap.js"></script>
+</head>
+<body>
+    <button type="submit" data-bs-toggle="modal" data-bs-target="#edit" class="btn btn-outline-dark">Edit Product</button>
+    <div class="modal fade" id="edit">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title">Edit Product</div>
+                        <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card shadow bg-secondary">
+                            <h4 class="lead">Please Edit Products</h4>
+                            <form action="/edit/{{data[0]}}" method="post" enctype="multipart/form-data">
+                                <label for="name" class="form-label">Product Name</label>
+                                <input type="text" name="name" id="name" value="{{data[1]}}" class="form-control">
+                                <label for="cost" class="form-label">Product Cost</label>
+                                <input type="number" name="cost" id="cost" value="{{data[3]}}" class="form-control">
+                                <label for="category" class="form-label">Product Category</label>
+                                <select name="category" id="category" class="form-control">
+                                    <option {% if data[4]=='phones'%} selected {% endif %} value="Phones">Phones</option>
+                                    <option {% if data[4]=='laptops'%} selected {% endif %} value="laptops">Laptops</option>
+                                    <option {% if data[4]=='shoes'%} selected {% endif %} value="Shoes">Shoes</option>
+                                    <option {% if data[4]=='food'%} selected {% endif %} value="Food">Food</option>
+                                    <option {% if data[4]=='gaming'%} selected {% endif %} value="Games and Consoles">Games and Consoles</option>
+                                    <option {% if data[4]=='consmetics'%} selected {% endif %} value="Consmetics">Consmetics</option>
+                                    <button type="submit" class="btn btn-outline-success">Make Changes</button>
+                                    <button class="btn btn-danger" data-bs-dismiss="modal" >Cancel</button>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer"></div>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

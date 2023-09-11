@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <script src="../static/js/bootstrap.js"></script>
+</head>
+<body>
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#editModal">Edit Product</button>
+    <div class="modal fade" id="editModal">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title">Edit Product</div>
+                        <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card shadow bg-secondary">
+                            <h4 class="lead">Please Edit Products</h4>
+                            <form action="/edit/{{product[0]}}" method="post" enctype="multipart/form-data">
+                                <label for="name">Product Name</label>
+                                <input type="text" name="name" id="name" value="{{product[1]}}">
+                                <label for="cost">Product Cost</label>
+                                <input type="number" name="cost" id="cost" value="{{product[3]}}">
+                                <label for="category">Product Category</label>
+                                <select name="category" id="category">
+                                    <option {% if product[1]=='phones'%} selected {% endif %} value="Phones">Phones</option>
+                                    <option {% if product[1]=='laptops'%} selected {% endif %} value="laptops">Laptops</option>
+                                    <option {% if product[1]=='shoes'%} selected {% endif %} value="Shoes">Shoes</option>
+                                    <option {% if product[1]=='food'%} selected {% endif %} value="Food">Food</option>
+                                    <option {% if product[1]=='gaming'%} selected {% endif %} value="Games and Consoles">Games and Consoles</option>
+                                    <option {% if product[1]=='cosmetics'%} selected {% endif %} value="Cosmetics">Cosmetics</option>
+                                    <button type="submit" class="btn btn-outline-success">Make Changes</button>
+                                    <button class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer"></div>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

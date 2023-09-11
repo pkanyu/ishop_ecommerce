@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <script src="../static/js/bootstrap.js"></script>
+
+</head>
+<body>
+    <div class="container bg-info">
+        <section class="row">
+            <div class="col-md-6">
+
+                <div class="card shadow p-1 my-3">
+                    <h4 class="text-center text-dark bg-danger">{{single_record[1]}}</h4>
+                    <img src="../static/products/{{single_record[7]}}" alt="" width="100%" height="350px" style="border: 15px;">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="lead text-center mt-2">{{single_record[2]}}</div>
+                <h5 class="text-center">Kshs {{single_record[3]}}</h5>
+                <h5 class="text-center">Kshs {{single_record[4]}}</h5>
+                {% if session['user_key'] %}
+                <div class="card shadow p-2 mt-2">
+                    <form action="/mpesa" method="post">
+                        <input type="" name="amount" id="" value="{{single_record[3]}}" class="form-control" readonly> <br>
+                        <input type="tel" name="phone" id="" placeholder="Enter Your Phone 2547XXXXXXXXX" class="form-control" required>
+                        <input type="submit" value="Lipa na Mpesa" class="btn btn-success mt-3">
+
+                    </form>
+                </div>
+                <a href="/user_logout" class="btn btn-danger mt-4">Log Out</a>
+                
+
+                {% else%}
+                <div class="text-center mt-4">
+                    <a href="/user_login" class="btn btn-dark">Sign in to purchase</a>
+
+                    <p><a href="/giveus_feedback" class="btn btn-outline-success">Give Us Your Feedback</a></p>
+                    <p><a href="/view_feedback" class="btn btn-outline-warning">View Feedbacks</a></p>
+
+
+                    ALTER TABLE `feedback` ADD CONSTRAINT fk_parent_id FOREIGN KEY(parent_id) REFERENCES parent_table(parent);
+                </div>
+
+                {% endif %}
+            </div>
+        </section>
+        <br><br>
+        <h3>You May Also like...</h3>
+
+        <section class="row">
+            {% for product in similar_products %}
+            <div class="col-md-4">
+                <div class="card shadow my-2">
+                    <img src="../static/products/{{product[7]}}" alt="" width="100%" height="300px style='border-radius:15px;'">
+                    <h4 class="text-center text-danger">{{product[1]}}</h4>
+                    <h5 class="text-center">Ksh {{product[3]}}</h5>
+                    <p class="badge bg-warning text-center text-white">{{product[6]}}</p>
+                    <a href="/single_item/{{product[0]}}" class="btn btn-success">View Product</a>
+                </div>
+
+            </div>
+            {% endfor %}
+        </section>
+
+    </div>
+</body>
+</html>
