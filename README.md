@@ -1,1 +1,1 @@
-# A functional Ecommerce website in flask
+## A fully functional Ecommerce website in flask
